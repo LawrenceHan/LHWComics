@@ -7,24 +7,90 @@
 //
 
 #import "ViewController.h"
+#import "SDWebImageDownloader.h"
+#import "UIImageView+WebCache.h"
+
+NSString * const agent = @"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36";
 
 @interface ViewController ()
 @property (nonatomic, strong) NSMutableArray *photos;
+@property (weak, nonatomic) IBOutlet UIImageView *coverImageView;
+@property (weak, nonatomic) IBOutlet UIView *bottomVIew;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *authorLabel;
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 
 @end
 
-@implementation ViewController
+@implementation ViewController {
+    NSString *_refererURL;
+    NSString *_coverURL;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    [self loadData1:nil];
+    [[SDWebImageDownloader sharedDownloader] setValue:agent forHTTPHeaderField:@"User-Agent"];
+    [[SDWebImageDownloader sharedDownloader] setValue:_refererURL forHTTPHeaderField:@"Referer"];
+}
+
+- (IBAction)loadData1:(UIBarButtonItem *)sender {
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    NSString *path = [bundle pathForResource:@"test" ofType:@"json"];
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path] options:0 error:nil];
+    
+    _refererURL = [dict valueForKeyPath:@"url"];
+    _coverURL = [dict valueForKeyPath:@"image_urls.@firstObject"];
+    NSString *title = [dict valueForKeyPath:@"title"];
+    NSString *author = [dict valueForKeyPath:@"author.@firstObject"];
+    NSString *status = [dict valueForKeyPath:@"status"];
+    NSArray *chapters = [dict valueForKeyPath:@"chapters"];
+    
+    _titleLabel.text = title;
+    _authorLabel.text = author;
+    _statusLabel.text = status;
+    
+    [_coverImageView sd_setImageWithURL:[NSURL URLWithString:_coverURL]];
+    
     _photos = [NSMutableArray new];
-    // Photos
-    [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:@"http://a3.att.hudong.com/82/98/300001138148134380981807416_950.jpg"]]];
+    for (NSDictionary *dict in chapters) {
+        NSString *url = [dict valueForKeyPath:@"images.@firstObject"];
+        [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:url]]];
+    }
+    
     [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:@"http://h.hiphotos.baidu.com/zhidao/pic/item/f2deb48f8c5494ee5fd1d9302ff5e0fe99257e2c.jpg"]]];
     [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:@"http://static.yingyonghui.com/screenshots/1894/1894123_0.jpg"]]];
     [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:@"http://www.07073.com/uploads/140819/9869050_144639_1_lit.jpg"]]];
+}
+
+- (IBAction)loadData2:(UIBarButtonItem *)sender {
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    NSString *path = [bundle pathForResource:@"test2" ofType:@"json"];
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path] options:0 error:nil];
     
+    NSString *title = [dict valueForKeyPath:@"title"];
+    NSArray *array = [dict valueForKeyPath:@"contents"];
+    _titleLabel.text = title;
+    
+    _photos = [NSMutableArray new];
+    for (NSString *string in array) {
+        [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:string]]];
+    }
+}
+
+- (IBAction)loadData3:(UIBarButtonItem *)sender {
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    NSString *path = [bundle pathForResource:@"test" ofType:@"json"];
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path] options:0 error:nil];
+
+    NSString *title = [dict valueForKeyPath:@"title"];
+    NSArray *array = [dict valueForKeyPath:@"contents"];
+    _titleLabel.text = title;
+    
+    _photos = [NSMutableArray new];
+    for (NSString *string in array) {
+        [_photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:string]]];
+    }
 }
 
 - (IBAction)buttonTouched:(UIButton *)sender {

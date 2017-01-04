@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0257D53D1E1D2D3D007918AC /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 0257D53C1E1D2D3D007918AC /* test.json */; };
+		0257D53F1E1D41AF007918AC /* test2.json in Resources */ = {isa = PBXBuildFile; fileRef = 0257D53E1E1D41AF007918AC /* test2.json */; };
+		0257D5411E1D4206007918AC /* test3.json in Resources */ = {isa = PBXBuildFile; fileRef = 0257D5401E1D4206007918AC /* test3.json */; };
 		028D41941E1CB7250049C5BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 028D41931E1CB7250049C5BE /* main.m */; };
 		028D41971E1CB7250049C5BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 028D41961E1CB7250049C5BE /* AppDelegate.m */; };
 		028D419A1E1CB7250049C5BE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 028D41991E1CB7250049C5BE /* ViewController.m */; };
@@ -82,6 +85,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0257D53C1E1D2D3D007918AC /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = test.json; path = "../../../../../Library/Mobile Documents/com~apple~CloudDocs/test.json"; sourceTree = "<group>"; };
+		0257D53E1E1D41AF007918AC /* test2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test2.json; sourceTree = "<group>"; };
+		0257D5401E1D4206007918AC /* test3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test3.json; sourceTree = "<group>"; };
 		028D418F1E1CB7250049C5BE /* LHWComics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LHWComics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		028D41931E1CB7250049C5BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		028D41951E1CB7250049C5BE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -206,6 +212,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0257D53B1E1D2D22007918AC /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				0257D53C1E1D2D3D007918AC /* test.json */,
+				0257D53E1E1D41AF007918AC /* test2.json */,
+				0257D5401E1D4206007918AC /* test3.json */,
+			);
+			name = Test;
+			sourceTree = "<group>";
+		};
 		028D41861E1CB7250049C5BE = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +242,7 @@
 		028D41911E1CB7250049C5BE /* LHWComics */ = {
 			isa = PBXGroup;
 			children = (
+				0257D53B1E1D2D22007918AC /* Test */,
 				028D41A91E1CB7B60049C5BE /* MWPhotoBrowser */,
 				028D41951E1CB7250049C5BE /* AppDelegate.h */,
 				028D41961E1CB7250049C5BE /* AppDelegate.m */,
@@ -461,6 +478,7 @@
 			files = (
 				028D41F41E1CB7C00049C5BE /* PlayButtonOverlayLarge.png in Resources */,
 				028D41EC1E1CB7C00049C5BE /* ImageSelectedOn@2x.png in Resources */,
+				0257D53F1E1D41AF007918AC /* test2.json in Resources */,
 				028D42031E1CB7C00049C5BE /* VideoOverlay.png in Resources */,
 				028D41F91E1CB7C00049C5BE /* PlayButtonOverlayLargeTap@3x.png in Resources */,
 				028D41FA1E1CB7C00049C5BE /* UIBarButtonItemArrowLeft.png in Resources */,
@@ -476,12 +494,14 @@
 				028D42511E1CB8710049C5BE /* LICENSE in Resources */,
 				028D42051E1CB7C00049C5BE /* VideoOverlay@3x.png in Resources */,
 				028D42001E1CB7C00049C5BE /* UIBarButtonItemGrid.png in Resources */,
+				0257D53D1E1D2D3D007918AC /* test.json in Resources */,
 				028D42561E1CBA180049C5BE /* Launch Screen.storyboard in Resources */,
 				028D419F1E1CB7250049C5BE /* Assets.xcassets in Resources */,
 				028D42021E1CB7C00049C5BE /* UIBarButtonItemGrid@3x.png in Resources */,
 				028D41E51E1CB7C00049C5BE /* ImageError.png in Resources */,
 				028D41FF1E1CB7C00049C5BE /* UIBarButtonItemArrowRight@3x.png in Resources */,
 				028D41F61E1CB7C00049C5BE /* PlayButtonOverlayLarge@3x.png in Resources */,
+				0257D5411E1D4206007918AC /* test3.json in Resources */,
 				028D41E61E1CB7C00049C5BE /* ImageError@2x.png in Resources */,
 				028D42061E1CB7C00049C5BE /* .gitkeep in Resources */,
 				028D41F01E1CB7C00049C5BE /* ImageSelectedSmallOff@3x.png in Resources */,

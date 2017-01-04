@@ -1,0 +1,19 @@
+//
+//  LHWComics-Prefix.pch
+//  LHWComics
+//
+//  Created by Hanguang on 04/01/2017.
+//  Copyright © 2017 Hanguang. All rights reserved.
+//
+
+#ifndef LHWComics_Prefix_pch
+#define LHWComics_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#ifdef __OBJC__
+@import UIKit;
+@import Foundation;
+#endif
+
+#endif /* LHWComics_Prefix_pch */

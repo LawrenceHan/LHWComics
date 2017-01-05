@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SDWebImageDownloader.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [[SDWebImageDownloader sharedDownloader] setValue:kUserAgent forHTTPHeaderField:@"User-Agent"];
+    [[SDWebImageDownloader sharedDownloader] setValue:kReferer forHTTPHeaderField:@"Referer"];
     return YES;
 }
 
